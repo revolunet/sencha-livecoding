@@ -6,6 +6,8 @@ Ext.application({
     controllers: ['Main'],
     
     launch: function() {
-        Ext.create('ParisJS.view.Home');
+        Ext.Viewport.add(
+            Ext.create('ParisJS.view.Home')
+        );
     }
 });
