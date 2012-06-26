@@ -1,6 +1,7 @@
 Ext.application({
     name: 'ParisJS',
-
+    models: ['Tweet'],
+    stores: ['Tweets', 'SenchaTweets'],
     launch: function() {
         Ext.create("Ext.tab.Panel", {
             fullscreen: true,
@@ -26,30 +27,32 @@ Ext.application({
                     xtype: 'list',
 
                     //set the itemtpl to show the fields for the store
-                    itemTpl: '<div class="tweet">' + 
+                    itemTpl: '<div class="tweet">' +
                                 '<img src="{profile_image_url}">' +
                                 '<p>' +
                                     '<strong>{from_user}</strong><br>' +
-                                    '{text}' + 
+                                    '{text}' +
                                 '</p>' +
                                 '<div class="clear"></div>' +
                              '</div>',
 
-                    store: {
-                        autoLoad: true,
-                        fields: [
-                            'from_user', 'to_user', 'profile_image_url', 'text'
-                        ],
+                    store: 'Tweets'
+                },{
+                    title: 'SenchaTweets',
+                    iconCls: 'twitter2',
+                    xtype: 'list',
 
-                        proxy: {
-                            type: 'jsonp',
-                            url: 'http://search.twitter.com/search.json?q=parisjs&rpp=25',
-                            reader: {
-                                rootProperty: 'results'
-                            }
-                        }
-                    }
+                    //set the itemtpl to show the fields for the store
+                    itemTpl: '<div class="tweet">' +
+                                '<img src="{profile_image_url}">' +
+                                '<p>' +
+                                    '<strong>{from_user}</strong><br>' +
+                                    '{text}' +
+                                '</p>' +
+                                '<div class="clear"></div>' +
+                             '</div>',
 
+                    store: 'SenchaTweets'
                 },
                 {
                     title: 'Favorites',
