@@ -2,6 +2,7 @@ Ext.application({
     name: 'ParisJS',
     models: ['Tweet'],
     stores: ['Tweets', 'SenchaTweets'],
+    views: ['TweetList'],
     launch: function() {
         Ext.create("Ext.tab.Panel", {
             fullscreen: true,
@@ -24,34 +25,12 @@ Ext.application({
                 {
                     title: 'Tweets',
                     iconCls: 'twitter2',
-                    xtype: 'list',
-
-                    //set the itemtpl to show the fields for the store
-                    itemTpl: '<div class="tweet">' +
-                                '<img src="{profile_image_url}">' +
-                                '<p>' +
-                                    '<strong>{from_user}</strong><br>' +
-                                    '{text}' +
-                                '</p>' +
-                                '<div class="clear"></div>' +
-                             '</div>',
-
+                    xtype: 'tweetlist',
                     store: 'Tweets'
                 },{
                     title: 'SenchaTweets',
                     iconCls: 'twitter2',
-                    xtype: 'list',
-
-                    //set the itemtpl to show the fields for the store
-                    itemTpl: '<div class="tweet">' +
-                                '<img src="{profile_image_url}">' +
-                                '<p>' +
-                                    '<strong>{from_user}</strong><br>' +
-                                    '{text}' +
-                                '</p>' +
-                                '<div class="clear"></div>' +
-                             '</div>',
-
+                    xtype: 'tweetlist',
                     store: 'SenchaTweets'
                 },
                 {
