@@ -1,0 +1,19 @@
+.tweet strong {
+    font-size:1.5em;
+    font-weight:bold;
+}
+.tweet p {
+     padding-left:70px;
+    font-size:1em;
+}
+.tweet img {
+    float:left;
+    margin:5px;
+    border:1px solid silver;
+}
+.avatar img {
+    border:1px solid silver;
+}
+.tweet .clear {
+    clear:both;
+}
