@@ -4,12 +4,11 @@ Ext.define('ParisJS.store.Tweets', {
         storeId: 'Tweets',
         autoLoad: true,
         model: 'ParisJS.model.Tweet',
-        pageSize: 25,
         proxy: {
             type: 'jsonp',
-            limitParam: 'rpp',
             extraParams: {
-                q: 'parisjs'
+                q: 'parisjs',
+                rpp: 25
             },
             url: 'http://search.twitter.com/search.json',
             reader: {
